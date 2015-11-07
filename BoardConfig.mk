@@ -146,11 +146,6 @@ TARGET_INIT_VENDOR_LIB := libinit_msm
 TARGET_LIBINIT_DEFINES_FILE := $(LOCAL_PATH)/init/init_condor.c
 TARGET_UNIFIED_DEVICE := true
 
-# Recovery
-TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/ramdisk/fstab.qcom
-BOARD_HAS_NO_SELECT_BUTTON := true
-HAVE_SELINUX := true
-
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
 
@@ -196,3 +191,26 @@ endif
 
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
+
+# Recovery
+BOARD_RECOVERY_SWIPE := true
+BOARD_HAS_NO_SELECT_BUTTON := true
+BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
+BOARD_SUPPRESS_EMMC_WIPE := true
+TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/ramdisk/twrp.fstab
+
+#TWRP
+DEVICE_RESOLUTION := 540x960
+TW_THEME := portrait_hdpi
+TARGET_USERIMAGES_USE_EXT4 := true
+RECOVERY_SDCARD_ON_DATA := true
+TW_INTERNAL_STORAGE_PATH := "/data/media"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
+TW_EXTERNAL_STORAGE_PATH := "/external_sd"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
+TW_NO_USB_STORAGE := true
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+TW_SCREEN_BLANK_ON_BOOT := true
+TW_TARGET_USES_QCOM_BSP := true
+TW_IGNORE_MAJOR_AXIS_0 := true
